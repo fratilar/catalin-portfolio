@@ -52,7 +52,7 @@ function Banner() {
                   : translateRightXL,
             }}
          >
-            <Image src={banner} alt="banner" layout="fill" objectFit="contain" />
+            <Image src={banner} alt="banner" layout="fill" objectFit="contain" priority />
          </motion.div>
       </div>
    );
