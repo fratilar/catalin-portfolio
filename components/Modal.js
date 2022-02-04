@@ -3,7 +3,6 @@ import { MdOutlineClose } from "react-icons/md";
 
 function Modal({ title }) {
    const [modal, setModal] = useState(false);
-   console.log(modal);
 
    return (
       <div className="relative">
