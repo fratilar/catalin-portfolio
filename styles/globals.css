@@ -282,6 +282,7 @@ a {
 }
 
 /* END OF PROJECT */
+
 @media screen and (min-width: 2000px) {
    .description-container {
       max-width: 900px;
@@ -349,15 +350,15 @@ a {
    }
 
    .img-container {
-      width: 350px;
-      height: 350px;
+      width: 300px;
+      height: 300px;
    }
 }
 
 @media screen and (max-width: 770px) {
    .img-container {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
    }
 }
 
@@ -395,7 +396,7 @@ a {
    .banner-container {
       position: relative;
       padding: 0;
-      padding-top: 40px;
+      padding-top: 0px;
       flex-direction: column;
       text-align: center;
    }

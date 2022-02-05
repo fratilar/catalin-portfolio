@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegHandPointer } from "react-icons/fa";
+import { BsHandIndexThumb } from "react-icons/bs";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 function FingerScroll() {
@@ -8,7 +8,7 @@ function FingerScroll() {
 
    return (
       <motion.div className="finger-scroll" style={{ opacity }}>
-         <FaRegHandPointer className="finger-icon" />
+         <BsHandIndexThumb className="finger-icon" />
          <p>Swipe up</p>
       </motion.div>
    );
