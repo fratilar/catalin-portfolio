@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
+import Image from "next/image";
 
-function Modal({ title }) {
+function Modal({ src, title }) {
    const [modal, setModal] = useState(false);
 
    return (
       <div className="relative">
-         <div className="modal" onClick={() => setModal(true)}>
-            <p className="modal-title">{title}</p>
+         <div className="modal relative" onClick={() => setModal(true)}>
+            <Image src={src} alt={title} layout="fill" objectFit="contain" className="modal-title" />
          </div>
 
          {modal && (

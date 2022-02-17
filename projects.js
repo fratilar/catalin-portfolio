@@ -1,37 +1,42 @@
 export const projects = [
    {
       id: 1,
-      title: "Tattoo",
-      src: "https://s.yimg.com/uu/api/res/1.2/rnF3_iOiSdGeuEugsIHu8Q--~B/Zmk9ZmlsbDtoPTQyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-12/9908fc00-5398-11ec-b7bf-8dded52a981b.cf.jpg",
+      title: "Partners in crime-girl",
+      src: "/Images/partners-in-crime-girl.webp",
    },
    {
       id: 2,
-      title: "Tattoo",
-      src: "https://lh3.googleusercontent.com/tGDJiTbg_7QGP3haIafXg8ZwQjU4CXfE87u4LHF0owLWxrQOXUtqRsmiIFc1i3KlMWtUjfKmzTaf6ep_dInO93e7AelPLwFLtY-4=w600",
+      title: "Partners in crime-boy",
+      src: "/Images/partners-in-crime-boy.jpeg",
    },
    {
       id: 3,
-      title: "Tattoo",
-      src: "https://s.yimg.com/uu/api/res/1.2/rnF3_iOiSdGeuEugsIHu8Q--~B/Zmk9ZmlsbDtoPTQyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-12/9908fc00-5398-11ec-b7bf-8dded52a981b.cf.jpg",
+      title: "Be different",
+      src: "/Images/be-different.jpeg",
    },
    {
       id: 4,
-      title: "Tattoo",
-      src: "https://s.yimg.com/uu/api/res/1.2/rnF3_iOiSdGeuEugsIHu8Q--~B/Zmk9ZmlsbDtoPTQyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-12/9908fc00-5398-11ec-b7bf-8dded52a981b.cf.jpg",
+      title: "Boys will be boys",
+      src: "/Images/boys-will-be-boys.jpeg",
    },
    {
       id: 5,
-      title: "Tattoo",
-      src: "https://s.yimg.com/uu/api/res/1.2/rnF3_iOiSdGeuEugsIHu8Q--~B/Zmk9ZmlsbDtoPTQyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-12/9908fc00-5398-11ec-b7bf-8dded52a981b.cf.jpg",
+      title: "Meta Kid",
+      src: "/Images/egld-meta-kid.jpeg",
    },
    {
       id: 6,
-      title: "Tattoo",
-      src: "https://s.yimg.com/uu/api/res/1.2/rnF3_iOiSdGeuEugsIHu8Q--~B/Zmk9ZmlsbDtoPTQyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-12/9908fc00-5398-11ec-b7bf-8dded52a981b.cf.jpg",
+      title: "Free Will",
+      src: "/Images/free-will.jpeg",
    },
    {
       id: 7,
-      title: "Tattoo",
-      src: "https://s.yimg.com/uu/api/res/1.2/rnF3_iOiSdGeuEugsIHu8Q--~B/Zmk9ZmlsbDtoPTQyNzt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-12/9908fc00-5398-11ec-b7bf-8dded52a981b.cf.jpg",
+      title: "Young Blood",
+      src: "/Images/young-blood.jpeg",
+   },
+   {
+      id: 8,
+      title: "Mind of a killer",
+      src: "/Images/mind-of-a-killer.jpeg",
    },
 ];

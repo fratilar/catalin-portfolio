@@ -14,8 +14,10 @@ export default function Home() {
 
          <div>
             <Banner />
-            <Modal title="About" />
-            <Modal title="Contact" />
+            <div className="modals">
+               <Modal src="/Images/about.png" title="About" />
+               <Modal src="/Images/contact.png" title="Contact" />
+            </div>
             <Projects />
          </div>
       </div>
