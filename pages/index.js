@@ -1,9 +1,38 @@
 import Head from "next/head";
-import Modal from "../components/Modal";
 import Banner from "../containers/Banner";
 import Projects from "../containers/Projects";
+import Footer from "../containers/Footer";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { GrClose } from "react-icons/gr";
 
 export default function Home() {
+   const [about, setAbout] = useState(false);
+   const [contact, setContact] = useState(false);
+
+   function updateCounters() {
+      const counters = document.querySelectorAll(".counter");
+
+      counters.forEach((counter) => {
+         const target = Number(counter.getAttribute("data-target"));
+
+         const c = Number(counter.textContent);
+
+         const increment = target / 1000;
+
+         if (c < target) {
+            counter.textContent = Math.ceil(c + increment);
+            setTimeout(updateCounters, 60);
+         } else {
+            counter.textContent = target;
+         }
+      });
+   }
+
+   useEffect(() => {
+      updateCounters();
+   }, [about]);
+
    return (
       <div>
          <Head>
@@ -15,10 +44,60 @@ export default function Home() {
          <div>
             <Banner />
             <div className="modals">
-               <Modal src="/Images/about.png" title="About" />
-               <Modal src="/Images/contact.png" title="Contact" />
+               <div className="modal1">
+                  <Image src="/Images/about.png" alt="About" layout="fill" onClick={() => setAbout(true)} />
+               </div>
+               <div className="modal2">
+                  <Image src="/Images/contact.png" alt="Contact" layout="fill" onClick={() => setContact(true)} />
+               </div>
             </div>
+            {about && (
+               <div className="contact_modal">
+                  <div className="content">
+                     <GrClose className="close-btn" onClick={() => setAbout(false)} />
+                     <p>Probably the only person on the internet who doesn't claim to be a Graphic Design Guru.</p>
+                     <p>
+                        Just another freelance illustrator inspired by the present political and social issues, music
+                        and snowboarding culture.
+                     </p>
+                     <hr />
+                     <div className="facts">
+                        <div className="facts-content">
+                           <div className="flex">
+                              <h3 className="counter" data-target="350">
+                                 0
+                              </h3>
+                              <span>+</span>
+                           </div>
+                           <p>projects completed</p>
+                        </div>
+                        <div className="facts-content">
+                           <h3 className="counter" data-target="1">
+                              0
+                           </h3>
+                           <p>time bullied by a client</p>
+                        </div>
+                        <div className="facts-content">
+                           <h3 className="counter" data-target="777">
+                              0
+                           </h3>
+                           <p>Coffee consumed</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            )}
+            {contact && (
+               <div className="contact_modal">
+                  <div className="content">
+                     <GrClose className="close-btn" onClick={() => setContact(false)} />
+                     <p>drop me a message below</p>
+                     <a href="mailto:hellocatfratila@gmail.com">hellocatfratila@gmail.com</a>
+                  </div>
+               </div>
+            )}
             <Projects />
+            <Footer />
          </div>
       </div>
    );

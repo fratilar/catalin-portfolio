@@ -2,41 +2,51 @@ export const projects = [
    {
       id: 1,
       title: "Partners in crime-girl",
-      src: "/Images/partners-in-crime-girl.webp",
+      src: "/Images/08.png",
    },
    {
       id: 2,
       title: "Partners in crime-boy",
-      src: "/Images/partners-in-crime-boy.jpeg",
+      src: "/Images/07.png",
    },
    {
       id: 3,
       title: "Be different",
-      src: "/Images/be-different.jpeg",
+      src: "/Images/06.png",
    },
    {
       id: 4,
       title: "Boys will be boys",
-      src: "/Images/boys-will-be-boys.jpeg",
+      src: "/Images/05.png",
    },
    {
       id: 5,
       title: "Meta Kid",
-      src: "/Images/egld-meta-kid.jpeg",
+      src: "/Images/01.png",
    },
    {
       id: 6,
       title: "Free Will",
-      src: "/Images/free-will.jpeg",
+      src: "/Images/02.png",
    },
    {
       id: 7,
       title: "Young Blood",
-      src: "/Images/young-blood.jpeg",
+      src: "/Images/03.png",
    },
    {
       id: 8,
       title: "Mind of a killer",
-      src: "/Images/mind-of-a-killer.jpeg",
+      src: "/Images/04.png",
+   },
+   {
+      id: 9,
+      title: "Too much love",
+      src: "/Images/09.png",
+   },
+   {
+      id: 10,
+      title: "Always Cooking",
+      src: "/Images/10.png",
    },
 ];
