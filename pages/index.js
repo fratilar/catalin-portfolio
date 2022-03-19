@@ -22,7 +22,6 @@ export default function Home() {
 
          if (c < target) {
             counter.textContent = Math.ceil(c + increment);
-            setTimeout(updateCounters, 60);
          } else {
             counter.textContent = target;
          }
@@ -30,7 +29,9 @@ export default function Home() {
    }
 
    useEffect(() => {
-      updateCounters();
+      setTimeout(updateCounters, 60);
+
+      return () => clearTimeout(updateCounters, 60);
    }, [about]);
 
    return (
@@ -55,7 +56,7 @@ export default function Home() {
                <div className="contact_modal">
                   <div className="content">
                      <GrClose className="close-btn" onClick={() => setAbout(false)} />
-                     <p>Probably the only person on the internet who doesn't claim to be a Graphic Design Guru.</p>
+                     <p>{`Probably the only person on the internet who doesn't claim to be a Graphic Design Guru.`}</p>
                      <p>
                         Just another freelance illustrator inspired by the present political and social issues, music
                         and snowboarding culture.
