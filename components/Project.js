@@ -14,7 +14,7 @@ function Project({ project }) {
          >
             <Link href={"/project/" + project.id}>
                <a>
-                  <Image src={project.src} alt={project.title} layout="fill" />
+                  <Image src={project.src} alt={project.title} layout="fill" objectFit="contain" />
                </a>
             </Link>
          </motion.div>
