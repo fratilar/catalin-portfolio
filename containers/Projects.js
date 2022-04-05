@@ -6,7 +6,7 @@ function Projects() {
    return (
       <div className="projects-container">
          <div className="grid">
-            {projects.map((project) => (
+            {projects.reverse().map((project) => (
                <Project key={project.id} project={project} />
             ))}
          </div>
