@@ -330,6 +330,7 @@ a {
   text-align: center;
   min-width: 500px;
   max-width: 80%;
+  margin: 0 auto;
   padding: 60px;
   background-color: white;
   color: black;
@@ -337,6 +338,10 @@ a {
   border-radius: 5px;
   transition: all 0.3s ease-in;
   z-index: 1;
+}
+
+.logo-content {
+  display: flex;
 }
 
 .content > p {

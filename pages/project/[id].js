@@ -8,33 +8,43 @@ import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { projects } from "../../projects";
 
-
 function Images() {
-   const router = useRouter();
-   const {
-      query: { id },
-   } = router;
-   
-   const prev_url = `/project/${id == 1 ? id : id - 1}`;
-   const next_url = `/project/${id == projects.length ? id : +id + 1}`;
-   
-   // console.log(projects);
-   return (
-      <AnimatePresence>
-         <div className="images-page">
-            <div className="top-right">
-               <CgClose className="icon" onClick={() => router.back()} />
+  const router = useRouter();
+  const {
+    query: { id },
+  } = router;
 
-               <MdOutlineArrowBackIosNew className="icon" onClick={() => router.replace(prev_url)} />
+  const prev_url = `/project/${id == 1 ? id : id - 1}`;
+  const next_url = `/project/${id == projects.length ? id : +id + 1}`;
 
-               <MdOutlineArrowForwardIos className="icon" onClick={() => router.replace(next_url)} />
-            </div>
-            <motion.div layoutId={id}>
-               <Image src={`/Images/${id < 10 ? "0" + id : id}.png`} width={700} height={1000}/>
-            </motion.div>
-         </div>
-      </AnimatePresence>
-   );
+  // console.log(projects);
+  return (
+    <AnimatePresence>
+      <div className="images-page">
+        <div className="top-right">
+          <CgClose className="icon" onClick={() => router.back()} />
+
+          <MdOutlineArrowBackIosNew
+            className="icon"
+            onClick={() => router.replace(prev_url)}
+          />
+
+          <MdOutlineArrowForwardIos
+            className="icon"
+            onClick={() => router.replace(next_url)}
+          />
+        </div>
+        <motion.div layoutId={id}>
+          <Image
+            src={`/Images/${id < 10 ? "0" + id : id}.png`}
+            width={700}
+            height={1000}
+            alt=""
+          />
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
 }
 
 export default Images;

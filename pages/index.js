@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { GrClose } from "react-icons/gr";
 import { AnimatePresence, motion } from "framer-motion";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function Home() {
   const [about, setAbout] = useState(false);
@@ -94,13 +95,15 @@ export default function Home() {
             />
           </div>
           <div className="modal4">
-            <Image
-              src="/Images/artworks.png"
-              alt="Artworks"
-              layout="fill"
-              objectFit="contain"
-              onClick={() => setArtworks(true)}
-            />
+            <a href="#projects">
+              <Image
+                src="/Images/artworks.png"
+                alt="Artworks"
+                layout="fill"
+                objectFit="contain"
+                onClick={() => setArtworks(true)}
+              />
+            </a>
           </div>
         </div>
 
@@ -185,28 +188,30 @@ export default function Home() {
               animate="visible"
               exit="hidden"
             >
-              <motion.div className="content" variants={item}>
-                <GrClose
-                  className="close-btn"
-                  onClick={() => setLogos(false)}
-                />
-                <Image
-                  src="/Images/logos_1.jpg"
-                  alt="Logo-1-image"
-                  width={600}
-                  height={6000}
-                />
-                {/* <br /> */}
-                <Image
-                  src="/Images/logos_2.jpg"
-                  alt="Logo-2-image"
-                  width={600}
-                  height={6000}
-                />
-              </motion.div>
+              <OutsideClickHandler onOutsideClick={() => setLogos(false)}>
+                <motion.div className="content logo-content" variants={item}>
+                  <GrClose
+                    className="close-btn"
+                    onClick={() => setLogos(false)}
+                  />
+                  <Image
+                    src="/Images/logos_1.jpg"
+                    alt="Logo-1-image"
+                    width={800}
+                    height={8000}
+                  />
+                  <Image
+                    src="/Images/logos_2.jpg"
+                    alt="Logo-2-image"
+                    width={800}
+                    height={8000}
+                  />
+                </motion.div>
+              </OutsideClickHandler>
             </motion.div>
           )}
         </AnimatePresence>
+
         <Projects />
         <Footer />
       </div>
