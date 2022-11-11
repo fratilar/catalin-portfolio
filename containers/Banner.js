@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import banner from "../public/Images/cover_medium.png";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import ArrowScroll from "../components/ArrowScroll";
