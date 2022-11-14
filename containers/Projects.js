@@ -1,17 +1,14 @@
 import React from "react";
 import Project from "../components/Project";
-import { projects } from "../projects";
 
-function Projects() {
+export default function Projects({ projects }) {
    return (
       <div className="projects-container" id="projects">
          <div className="grid">
-            {[...projects].reverse().map((project) => (
-               <Project key={project.id} project={project} />
+            {projects?.map((project) => (
+               <Project key={project._id} project={project} />
             ))}
          </div>
       </div>
    );
 }
-
-export default Projects;

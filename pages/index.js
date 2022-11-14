@@ -7,12 +7,13 @@ import { useState, useEffect } from "react";
 import { GrClose } from "react-icons/gr";
 import { AnimatePresence, motion } from "framer-motion";
 import OutsideClickHandler from "react-outside-click-handler";
+import { client, urlFor } from "../client";
 
-export default function Home() {
+export default function Home({ projects, logos, cover }) {
+
   const [about, setAbout] = useState(false);
   const [contact, setContact] = useState(false);
-  const [logos, setLogos] = useState(false);
-  const [artworks, setArtworks] = useState(false);
+  const [showLogos, setShowLogos] = useState(false);
 
   function updateCounters() {
     const counters = document.querySelectorAll(".counter");
@@ -65,7 +66,7 @@ export default function Home() {
       </Head>
 
       <div>
-        <Banner />
+        <Banner cover={cover} />
         <div className="modals">
           <div className="modal1">
             <Image
@@ -91,7 +92,7 @@ export default function Home() {
               alt="Logos"
               layout="fill"
               objectFit="contain"
-              onClick={() => setLogos(true)}
+              onClick={() => setShowLogos(true)}
             />
           </div>
           <div className="modal4">
@@ -101,7 +102,6 @@ export default function Home() {
                 alt="Artworks"
                 layout="fill"
                 objectFit="contain"
-                onClick={() => setArtworks(true)}
               />
             </a>
           </div>
@@ -180,7 +180,7 @@ export default function Home() {
         </AnimatePresence>
 
         <AnimatePresence>
-          {logos && (
+          {showLogos && (
             <motion.div
               className="logos_modal"
               variants={container}
@@ -188,33 +188,45 @@ export default function Home() {
               animate="visible"
               exit="hidden"
             >
-              <OutsideClickHandler onOutsideClick={() => setLogos(false)}>
+              <OutsideClickHandler onOutsideClick={() => setShowLogos(false)}>
                 <motion.div className="content" variants={item}>
                   <GrClose
                     className="close-btn"
-                    onClick={() => setLogos(false)}
+                    onClick={() => setShowLogos(false)}
                   />
-                  <Image
-                    src="/Images/logos_1.jpg"
-                    alt="Logo-1-image"
-                    width={700}
-                    height={7000}
-                  />
-                  <Image
-                    src="/Images/logos_2.jpg"
-                    alt="Logo-2-image"
-                    width={700}
-                    height={6500}
-                  />
+                  {logos.map(logo => (
+                    <Image
+                      key={logo._id}
+                      src={`${urlFor(logo.image)}`}
+                      alt={logo.title}
+                      width={700}
+                      height={7000}
+                    />
+                  ))}
                 </motion.div>
               </OutsideClickHandler>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <Projects />
+        <Projects projects={projects} />
         <Footer />
       </div>
     </div>
   );
 }
+
+export async function getServerSideProps() {
+  const projectsQuery = '*[_type == "artworks"] | order(_createdAt desc)';
+  const projects = await client.fetch(projectsQuery);
+  
+  const logosQuery = '*[_type == "logos"] | order(_createdAt desc)';
+  const logos = await client.fetch(logosQuery);
+  
+  const coverQuery = '*[_type == "cover"] | order(_createdAt desc)';
+  const cover = await client.fetch(coverQuery);
+
+  return {
+    props: { projects, logos, cover }
+  }
+};

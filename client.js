@@ -1,9 +1,14 @@
-import { createClient } from "next-sanity";
+import sanityClient from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
-export const client = createClient({
-    projectId: process.env.NEXT_APP_SANITY_PROJECT_ID,
+export const client = sanityClient({
+    projectId: "6e61zg08",
     dataset: "production",
     apiVersion: "2022-11-11",
     useCdn: false,
-    token: process.env.NEXT_APP_SANITY_TOKEN
+    // token: process.env.NEXT_APP_SANITY_TOKEN
 });
+
+const builder = imageUrlBuilder(client);
+
+export const urlFor = (source) => builder.image(source);

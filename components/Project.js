@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { urlFor } from "../client";
 
 function Project({ project }) {
    return (
@@ -10,11 +11,11 @@ function Project({ project }) {
             className="img-container"
             animate={{ scale: 1 }}
             whileHover={{ scale: 1.03 }}
-            layoutId={project.id}
+            layoutId={project._id}
          >
-            <Link href={"/project/" + project.id}>
+            <Link href={"/project/" + project.slug.current}>
                <a>
-                  <Image src={project.src} alt={project.title} layout="fill" objectFit="contain" />
+                 <Image src={`${urlFor(project.image)}`} alt={project.title} layout="fill" objectFit="contain" />
                </a>
             </Link>
          </motion.div>
